@@ -47,6 +47,7 @@ body {
 	font-size: 66px;
 	font-weight: 200;
 	text-align: right;
+	cursor: pointer;
 }
 
 #calculator-pad-operators {
@@ -94,19 +95,24 @@ body {
 	border-radius: 51%;
 }
 
-.equal {
+#correct {
 	width: 58px;
 	height: 58px;
+	margin: 6px; /* =(num.width - correct.width)/2 */
 	color: #272323;
-	font-size: 40px;
-	line-height: 54px;
+	line-height: 58px;
 	margin-top: 5px;
 	background-color: #e6f924;
+	float: left;
 	transition: none;
+	-moz-box-shadow: 0px 20px 15px -15px #262323;
+	-webkit-box-shadow: 0px 20px 15px -15px #262323;
+	-o-box-shadow: 0px 20px 15px -15px #262323;
+	box-shadow: 0px 20px 15px -15px #262323;
 }
 
-.equal:hover {
-	background-color: #64dd17  ;
+#correct:hover {
+	background-color: #ff6f00;
 }
 
 
