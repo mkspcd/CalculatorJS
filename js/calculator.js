@@ -100,6 +100,7 @@ function concatNumber(x) {
 
 function evaluate() {
 	result.innerHTML = eval(operation);
+	result.innerHTML = result.innerHTML.substring(0, 8);
 	console.log( operation + " = " + eval(operation) );
 }
 
@@ -133,8 +134,12 @@ correct.onclick = function() {
 		clear();
 	}
 	
-	if (operation.length != 0) {
+	if (operation.length != 0 && !endsWithOperator()) {
 		evaluate();
+	}
+	
+	if (endsWithOperator()) {
+		result.innerHTML = eval( operation.substring(0, operation.length - 1) );
 	}
 }
 
