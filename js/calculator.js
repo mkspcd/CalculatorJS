@@ -19,28 +19,44 @@ var multiply = document.getElementById("multiply");
 var minus = document.getElementById("minus");
 var plus = document.getElementById("plus");
 
-divide.onclick = function(event) {
-	visualOperation.innerHTML += "÷";
-	operation += "/";
-	currentNumber = "";
+divide.onclick = function() {
+	if (endsWithOperator()) {
+		visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1) + "÷";
+		operation = operation.substring(0, operation.length - 1) + "/";
+	} else {
+		visualOperation.innerHTML += "÷";
+		operation += "/";
+	}
 };
 
-multiply.onclick = function(event) {
-	visualOperation.innerHTML += "×";
-	operation += "*";
-	currentNumber = "";
+multiply.onclick = function() {
+	if (endsWithOperator()) {
+		visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1) + "×";
+		operation = operation.substring(0, operation.length - 1) + "*";
+	} else {
+		visualOperation.innerHTML += "×";
+		operation += "*";
+	}
 };
 
-minus.onclick = function(event) {
-	visualOperation.innerHTML += "–";
-	operation += "-";
-	currentNumber = "";
+minus.onclick = function() {
+	if (endsWithOperator()) {
+		visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1) + "–";
+		operation = operation.substring(0, operation.length - 1) + "-";
+	} else {
+		visualOperation.innerHTML += "–";
+		operation += "-";
+	}
 };
 
-plus.onclick = function(event) {
-	visualOperation.innerHTML += "+";
-	operation += "+";
-	currentNumber = "";
+plus.onclick = function() {
+	if (endsWithOperator()) {
+		visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1) + "+";
+		operation = operation.substring(0, operation.length - 1) + "+";
+	} else {
+		visualOperation.innerHTML += "+";
+		operation += "+";
+	}
 };
 
 var num0 = document.getElementById("num0");
@@ -79,14 +95,12 @@ dot.onclick = function() {
 function concatNumber(x) {
 	updateVisualOperation(x);
 	operation += x;
-	currentNumber += x;
 	evaluate();
 }
 
 function evaluate() {
 	result.innerHTML = eval(operation);
 	console.log( operation + " = " + eval(operation) );
-	console.log("currentNumber = " + currentNumber );
 }
 
 function updateVisualOperation(x) {
@@ -101,12 +115,28 @@ function clear() {
 	visualOperation.innerHTML = "0";
 	operation = "";
 	result.innerHTML = "0";
-	currentNumber = "";
 }
 
+function endsWithOperator() {
+	if (operation.endsWith("/") || operation.endsWith("*") || operation.endsWith("-") || operation.endsWith("+")) {
+		return true;
+	}
+	return false;
+}
 
-
-
+var correct = document.getElementById("correct");
+correct.onclick = function() {
+	visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1);
+	operation = operation.substring(0, operation.length - 1);
+	
+	if (visualOperation.length == 0 || operation.length == 0) {
+		clear();
+	}
+	
+	if (operation.length != 0) {
+		evaluate();
+	}
+}
 
 
 
