@@ -59,34 +59,21 @@ plus.onclick = function() {
 	}
 };
 
-var num0 = document.getElementById("num0");
-var num1 = document.getElementById("num1");
-var num2 = document.getElementById("num2");
-var num3 = document.getElementById("num3");
-var num4 = document.getElementById("num4");
-var num5 = document.getElementById("num5");
-var num6 = document.getElementById("num6");
-var num7 = document.getElementById("num7");
-var num8 = document.getElementById("num8");
-var num9 = document.getElementById("num9");
-var dot = document.getElementById("dot");
-var equal = document.getElementById("equal");
-
 /*
-Quand l'utilisateur clique sur un chiffree, on ajoute ce chiffre
+Quand l'utilisateur clique sur un chiffre, on ajoute ce chiffre
 */
-num0.onclick = function() { concatNumber(0); };
-num1.onclick = function() { concatNumber(1); };
-num2.onclick = function() { concatNumber(2); };
-num3.onclick = function() { concatNumber(3); };
-num4.onclick = function() { concatNumber(4); };
-num5.onclick = function() { concatNumber(5); };
-num6.onclick = function() { concatNumber(6); };
-num7.onclick = function() { concatNumber(7); };
-num8.onclick = function() { concatNumber(8); };
-num9.onclick = function() { concatNumber(9); };
+document.getElementById("num0").onclick = function() { concatNumber(0); };
+document.getElementById("num1").onclick = function() { concatNumber(1); };
+document.getElementById("num2").onclick = function() { concatNumber(2); };
+document.getElementById("num3").onclick = function() { concatNumber(3); };
+document.getElementById("num4").onclick = function() { concatNumber(4); };
+document.getElementById("num5").onclick = function() { concatNumber(5); };
+document.getElementById("num6").onclick = function() { concatNumber(6); };
+document.getElementById("num7").onclick = function() { concatNumber(7); };
+document.getElementById("num8").onclick = function() { concatNumber(8); };
+document.getElementById("num9").onclick = function() { concatNumber(9); };
 
-dot.onclick = function() {
+document.getElementById("dot").onclick = function() {
 	visualOperation.innerHTML += ".";
 	operation += ".";
 	evaluate();
@@ -108,10 +95,6 @@ function updateVisualOperation(x) {
 	visualOperation.innerHTML === "0" ? visualOperation.innerHTML = x : visualOperation.innerHTML += x;
 }
 
-function updateOperation(x) {
-	operation.innerHTML === "0" ? operation.innerHTML = x : operation.innerHTML += x;
-}
-
 function clear() {
 	visualOperation.innerHTML = "0";
 	operation = "";
@@ -125,8 +108,7 @@ function endsWithOperator() {
 	return false;
 }
 
-var correct = document.getElementById("correct");
-correct.onclick = function() {
+document.getElementById("correct").onclick = function() {
 	visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1);
 	operation = operation.substring(0, operation.length - 1);
 	
