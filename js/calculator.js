@@ -69,15 +69,34 @@ plus.onclick = function() {
 /*
 Quand l'utilisateur clique sur un chiffre, on ajoute ce chiffre
 */
-document.getElementById("num0").onclick = function() { concatNumber(0); };
+var num0 = document.getElementById("num0");
+num0.onclick = function() { concatNumber(0); };
+
+var num1 = document.getElementById("num1");
 document.getElementById("num1").onclick = function() { concatNumber(1); };
+
+var num2 = document.getElementById("num2");
 document.getElementById("num2").onclick = function() { concatNumber(2); };
+
+var num3 = document.getElementById("num3");
 document.getElementById("num3").onclick = function() { concatNumber(3); };
+
+var num4 = document.getElementById("num4");
 document.getElementById("num4").onclick = function() { concatNumber(4); };
+
+var num5 = document.getElementById("num5");
 document.getElementById("num5").onclick = function() { concatNumber(5); };
+
+var num6 = document.getElementById("num6");
 document.getElementById("num6").onclick = function() { concatNumber(6); };
+
+var num7 = document.getElementById("num7");
 document.getElementById("num7").onclick = function() { concatNumber(7); };
+
+var num8 = document.getElementById("num8");
 document.getElementById("num8").onclick = function() { concatNumber(8); };
+
+var num9 = document.getElementById("num9");
 document.getElementById("num9").onclick = function() { concatNumber(9); };
 
 /*
@@ -86,7 +105,8 @@ Quand l'utilisateur clique sur le point '.' :
 	- si les dernier nombre de la chaine est deja decimal, on ne fait rien
 	- sinon, on ajoute le point
 */
-document.getElementById("dot").onclick = function() {
+var dot = document.getElementById("dot");
+dot.onclick = function() {
 	if ( endsWithOperator() ) {
 		visualOperation.innerHTML += "0.";
 		operation += "0.";
@@ -148,7 +168,8 @@ function lastNumberisDecimal() {
 /*
 Gestion du bouton 'C' pour corriger la frappe
 */
-document.getElementById("correct").onclick = function() {
+var correct = document.getElementById("correct");
+correct.onclick = function() {
 	visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1);
 	operation = operation.substring(0, operation.length - 1);
 	
@@ -170,3 +191,113 @@ document.getElementById("correct").onclick = function() {
 		result.innerHTML = eval( operation.substring(0, operation.length - 1) );
 	}
 }
+
+
+/*
+Keyboard support (european azerty keyboard, not tested with other configurations) : 
+The calculator supports the keypad for numbers, period, operators.
+It also supports 'regular' number (row above the letters), shift must be pressed to use them,
+It supports /, *, -, and + on 'regular' keyboard (part where the letters are). Depending on the operator, shift should be pressed (true for / and + ; false for * and -).
+The 'backslash' key act as the 'C' key, the 'delete' key resets the calculator. 
+
+*/
+document.addEventListener('keydown', function(event) {
+	
+	/* User press 0 */
+    if(event.keyCode == 96 || (event.shiftKey && event.keyCode == 48)) { num0.click(); }
+	
+	/* User press 1 */
+    else if(event.keyCode == 97 || (event.shiftKey && event.keyCode == 49)) { num1.click(); }
+	
+	/* User press 2 */
+    else if(event.keyCode == 98 || (event.shiftKey && event.keyCode == 50)) { num2.click(); }
+	
+	/* User press 3 */
+    else if(event.keyCode == 99 || (event.shiftKey && event.keyCode == 51)) { num3.click(); }
+
+	/* User press 4 */
+    else if(event.keyCode == 100 || (event.shiftKey && event.keyCode == 52)) { num4.click(); }
+
+	/* User press 5 */
+    else if(event.keyCode == 101 || (event.shiftKey && event.keyCode == 53)) { num5.click(); }
+	
+	/* User press 6 */
+    else if(event.keyCode == 102 || (event.shiftKey && event.keyCode == 54)) { num6.click(); }
+	
+	/* User press 7 */
+    else if(event.keyCode == 103 || (event.shiftKey && event.keyCode == 55)) { num7.click(); }
+	
+	/* User press 8 */
+    else if(event.keyCode == 104 || (event.shiftKey && event.keyCode == 56)) { num8.click(); }
+	
+	/* User press 9 */
+    else if(event.keyCode == 105 || (event.shiftKey && event.keyCode == 57)) { num9.click(); }
+	
+	/* User press '.' */
+    else if(event.keyCode == 110) { dot.click(); }
+	
+	/* User press '/' */
+    else if(event.keyCode == 111 || (event.shiftKey && event.keyCode == 58)) { divide.click(); }
+	
+	/* User press '*' */
+    else if(event.keyCode == 106 || event.keyCode == 170) { multiply.click(); }
+	
+	/* User press '-' */
+    else if(event.keyCode == 109 || event.keyCode == 54) { minus.click(); } /*----------------------------*/
+	
+	/* User press '+' */
+    else if(event.keyCode == 107 || (event.shiftKey && event.keyCode == 61)) { plus.click(); }
+
+	/* User press BackSpace : act as the 'C' button */
+    else if(event.keyCode == 8) { correct.click(); }
+	
+	/* User press Delete : reset the calculator */
+    else if(event.keyCode == 46) { clear(); }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
