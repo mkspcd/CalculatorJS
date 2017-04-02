@@ -195,11 +195,10 @@ correct.onclick = function() {
 
 /*
 Keyboard support (european azerty keyboard, not tested with other configurations) : 
-The calculator supports the keypad for numbers, period, operators.
-It also supports 'regular' number (row above the letters), shift must be pressed to use them,
-It supports /, *, -, and + on 'regular' keyboard (part where the letters are). Depending on the operator, shift should be pressed (true for / and + ; false for * and -).
-The 'backslash' key act as the 'C' key, the 'delete' key resets the calculator. 
-
+	- The calculator supports the keypad for numbers, period, operators.
+	- It also supports 'regular' number (row above the letters), shift must be pressed to use them,
+	- It supports /, *, -, and + on 'regular' keyboard (part where the letters are). Depending on the operator, shift should be pressed (true for / and + ; false for * and -).
+	- The 'backslash' key act as the 'C' key, the 'delete' key resets the calculator. 
 */
 document.addEventListener('keydown', function(event) {
 	
@@ -243,7 +242,7 @@ document.addEventListener('keydown', function(event) {
     else if(event.keyCode == 106 || event.keyCode == 170) { multiply.click(); }
 	
 	/* User press '-' */
-    else if(event.keyCode == 109 || event.keyCode == 54) { minus.click(); } /*----------------------------*/
+    else if(event.keyCode == 109 || event.keyCode == 54) { minus.click(); }
 	
 	/* User press '+' */
     else if(event.keyCode == 107 || (event.shiftKey && event.keyCode == 61)) { plus.click(); }
@@ -254,50 +253,3 @@ document.addEventListener('keydown', function(event) {
 	/* User press Delete : reset the calculator */
     else if(event.keyCode == 46) { clear(); }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
