@@ -5,7 +5,7 @@ It follows Google's [Material Design guidelines](https://material.io/guidelines/
 
 The user can either :
 
-- use his **mouse** and click on the buttons (a) click on the result resets the calculator),
+- use his **mouse** and click on the buttons (a click on the result resets the calculator),
 - type on his **keyboard** to use the calculator.
 
 <p align="center">
