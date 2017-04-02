@@ -5,6 +5,8 @@ It follows Google's [Material Design guidelines](https://material.io/guidelines/
 
 A click on the result resets the calculator.
 
+The user can also type on his keyboard to use the calculator.
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/mkspcd/CalculatorJS/master/screenshot.png" alt="Calculator" />
 </p>
