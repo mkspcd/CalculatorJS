@@ -105,7 +105,7 @@ function concatNumber(x) {
 
 function evaluate() {
 	result.innerHTML = eval(operation);
-	result.innerHTML = result.innerHTML.substring(0, 8);
+	result.innerHTML = result.innerHTML.substring(0, 9);
 }
 
 function updateVisualOperation(x) {
