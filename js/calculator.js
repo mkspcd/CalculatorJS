@@ -21,7 +21,11 @@ var multiply = document.getElementById("multiply");
 var minus = document.getElementById("minus");
 var plus = document.getElementById("plus");
 
-/* Adding corresponding events when the user clicks an element */
+/*
+Adding corresponding events when the user clicks on an operator.
+	- if the last character is already an operator, the new clicked operator takes its place,
+	- else we just add the new operator.
+*/
 divide.onclick = function() {
 	if (endsWithOperator()) {
 		visualOperation.innerHTML = visualOperation.innerHTML.substring(0, visualOperation.innerHTML.length - 1) + "÷";
@@ -96,16 +100,14 @@ document.getElementById("dot").onclick = function() {
 
 /* Ajout des chiffres cliqués à la chaine representant l'operation. */
 function concatNumber(x) {
-	if ( !isTooLong() ) {
-		updateVisualOperation(x);
-		operation += x;
-		evaluate();
-	}
+	updateVisualOperation(x);
+	operation += x;
+	evaluate();
 }
 
 function evaluate() {
 	result.innerHTML = eval(operation);
-	result.innerHTML = result.innerHTML.substring(0, 9);
+	result.innerHTML = result.innerHTML.substring(0, 8);
 }
 
 function updateVisualOperation(x) {
@@ -117,14 +119,6 @@ function clear() {
 	visualOperation.innerHTML = "0";
 	operation = "";
 	result.innerHTML = "0";
-}
-
-/* On limite l'operation à 12 caractères */
-function isTooLong() {
-	if (visualOperation.innerHTML.length > 12) {
-		return true;
-	}
-	return false;
 }
 
 /* Fonction qui retourne true si le dernier caractere de 'operation' est un operateur */
@@ -176,9 +170,3 @@ document.getElementById("correct").onclick = function() {
 		result.innerHTML = eval( operation.substring(0, operation.length - 1) );
 	}
 }
-
-
-
-
-
-

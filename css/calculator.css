@@ -45,6 +45,7 @@ body {
 #calculator-screen-result {
 	color: #565151;
 	font-size: 66px;
+	line-height: 66px
 	font-weight: 200;
 	text-align: right;
 	cursor: pointer;
