@@ -2,7 +2,9 @@
 
 A minimal — but fonctionnal — calculator, written with **HTML**, **CSS** and **JavaScript**.  
 It follows Google's [Material Design guidelines](https://material.io/guidelines/).  
-
+  
+You can see a [**live DEMO here**](https://mkspcd.github.io/CalculatorJS/).  
+  
 The user can either :
 
 - use his **mouse** and click on the buttons (a click on the result resets the calculator),
